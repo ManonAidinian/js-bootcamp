@@ -5,20 +5,22 @@
 
 const studentScoreResult = (score, max) => {
   let scorePercent = score / max * 100
-  if (scorePercent <= 100 && scorePercent >= 90) {
-    return `You got a A (${scorePercent}%))!`
-  } else if (scorePercent <= 89 && scorePercent >= 80) {
-    return `You got a B (${scorePercent}%))!`
-  } else if (scorePercent <= 79 && scorePercent >= 70) {
-    return `You got a C (${scorePercent}%))!`
-  } else if (scorePercent <= 69 && scorePercent >= 60) {
-    return `You got a D (${scorePercent}%))!`
+  let letterGrade = ''
+  if (scorePercent >= 90) {
+    letterGrade = "A"
+  } else if (scorePercent >= 80) {
+    letterGrade = "B"
+  } else if (scorePercent >= 70) {
+    letterGrade = "C"
+  } else if (scorePercent >= 60) {
+    letterGrade = "D"
   } else {
-    return `You got a F (${scorePercent}%))!`
+    letterGrade = "F"
   }
+  return `You got a ${letterGrade} (${scorePercent}%))!`
 }
 
-let studentScore = 87
+let studentScore = 45
 let maxScore = 100
 
 console.log(studentScoreResult(studentScore, maxScore))
