@@ -37,8 +37,10 @@ const deleteToDo = (todos, text) => {
   const index = todos.findIndex((todo, index) => {
     return todo.text === text
   })
-  todos.splice(index, 1)
+  if (index > -1) {
+    todos.splice(index, 1)
+  }
 }
 
-deleteToDo(todo2, 'Honda')
+deleteToDo(todo2, 'honda')
 console.log(todo2)
