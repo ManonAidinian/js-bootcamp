@@ -17,7 +17,7 @@ todo.forEach((item, idx) => {
 // convert array to array of object with 2 properties : text and completed?
 const todo2 = [{
   text: 'laundery',
-  completed: false
+  completed: true
 }, {
   text: 'groceries',
   completed: false
@@ -29,7 +29,7 @@ const todo2 = [{
   completed: false
 }, {
   text: 'cat food',
-  completed: true
+  completed: false
 }]
 // create function to remove an object by text value
 
@@ -43,4 +43,33 @@ const deleteToDo = (todos, text) => {
 }
 
 deleteToDo(todo2, 'honda')
+console.log(todo2)
+
+
+const uncompleted = todos => {
+  return todos.filter((todo) => {
+    return todo.completed === false
+  })
+}
+
+console.log(uncompleted(todo2))
+
+// -------------------------------------------
+
+const sortTodos = todos => {
+  todos.sort((a, b) => {
+    // if (a.title.toLowerCase() < b.title.toLowerCase()) {
+      if (a.completed === false && b.completed === true) {
+        return -1
+        // a comes before b
+    } else if (!b.completed && a.completed) {
+      return 1
+      // b comes before a
+    } else {
+      return 0
+    }
+  })
+}
+
+sortTodos(todo2)
 console.log(todo2)
