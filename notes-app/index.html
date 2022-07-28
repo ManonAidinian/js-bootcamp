@@ -10,14 +10,34 @@
     <h1>My Notes App</h1>
     <h3>Never forget your notes again!</h3>
 
-    <input id="search" type="text" placeholder="Type here">
+    <label for="">
+      Label: <input id="search" type="text" placeholder="Type here">
+    </label>
+
+    <select name="" id="filter-by">
+      <option value="byEdited">Sort by last edited</option>
+      <option value="byCreated">Sort by recently created</option>
+      <option value="alphabetical">Sort alphabetically</option>
+    </select>
 
     <div id="notes">
 
     </div>
 
     <button id="create-new">Create note</button>
-    <button id="remove-all">Remove all notes</button>
+
+    <!-- <label for="">
+      <input type="checkbox" id="for-fun"> Check me
+    </label> -->
+
+
+
+    <!-- <button id="remove-all">Remove all notes</button> -->
+
+    <!-- <form id="name-form" action="">
+      <input type="text" placeholder="First name" name="firstName">
+      <button>Submit</button>
+    </form> -->
 
     <p class="note other-class"><em>This application was created by Manon Mary Po</em></p>
     <p class="note">Some text here</p>
