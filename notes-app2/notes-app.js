@@ -1,5 +1,3 @@
-// ➜  js-bootcamp git:(master) live-server notes-app
-
 const notes = getSavedNotes();
 
 const filters = {
