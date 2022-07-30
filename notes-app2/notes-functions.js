@@ -10,13 +10,35 @@ const getSavedNotes = () => {
 
 // generate the DOM structure for a note
 const generateNoteDOM = (note) => {
-  const noteElement = document.createElement("p");
+  const noteElement = document.createElement("div");
+  const textElement = document.createElement("span");
+  const button = document.createElement("button");
+  // set up delete button
+  button.textContent = "x";
+  noteElement.appendChild(button);
+  button.addEventListener("click", () => {
+    removeNote(note.id);
+    saveNotes(notes);
+    renderNotes(notes, filters);
+  });
+  // set up the title text
   if (note.title.length > 0) {
-    noteElement.textContent = note.title;
+    textElement.textContent = note.title;
   } else {
-    noteElement.textContent = "Unnamed note";
+    textElement.textContent = "Unnamed note";
   }
+  noteElement.appendChild(textElement);
   return noteElement;
+};
+
+// remove note
+const removeNote = (noteId) => {
+  const noteIndex = notes.findIndex((note) => {
+    return note.id === noteId;
+  });
+  if (noteIndex > -1) {
+    notes.splice(noteIndex, 1);
+  }
 };
 
 // render filtered notes

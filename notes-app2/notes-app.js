@@ -17,6 +17,7 @@ document.querySelector("#search").addEventListener("input", (event) => {
 
 document.querySelector("#create-new").addEventListener("click", (event) => {
   notes.push({
+    id: uuidv4(),
     title: "",
     body: "",
   });

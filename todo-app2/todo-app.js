@@ -34,6 +34,7 @@ document.querySelector("#todo-form").addEventListener("submit", (event) => {
     textValue = "untitled but still to do";
   }
   todos.push({
+    id: uuidv4(),
     text: textValue,
     completed: false,
   });
