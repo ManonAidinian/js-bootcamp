@@ -11,9 +11,17 @@ const getSavedNotes = () => {
 // generate the DOM structure for a note
 const generateNoteDOM = (note) => {
   const noteElement = document.createElement("div");
-  const textElement = document.createElement("span");
+
+  const textElement = document.createElement("a");
+  textElement.setAttribute("href", `/edit.html#${note.id}`);
+  if (note.title.length > 0) {
+    textElement.textContent = note.title;
+  } else {
+    textElement.textContent = "Unnamed note";
+  }
+  noteElement.appendChild(textElement);
+
   const button = document.createElement("button");
-  // set up delete button
   button.textContent = "x";
   noteElement.appendChild(button);
   button.addEventListener("click", () => {
@@ -21,13 +29,7 @@ const generateNoteDOM = (note) => {
     saveNotes(notes);
     renderNotes(notes, filters);
   });
-  // set up the title text
-  if (note.title.length > 0) {
-    textElement.textContent = note.title;
-  } else {
-    textElement.textContent = "Unnamed note";
-  }
-  noteElement.appendChild(textElement);
+
   return noteElement;
 };
 

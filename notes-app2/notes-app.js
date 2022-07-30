@@ -16,13 +16,14 @@ document.querySelector("#search").addEventListener("input", (event) => {
 // ----------------add note button ---------------
 
 document.querySelector("#create-new").addEventListener("click", (event) => {
+  const id = uuidv4();
   notes.push({
-    id: uuidv4(),
+    id: id,
     title: "",
     body: "",
   });
+  location.assign(`/edit.html#${id}`);
   saveNotes(notes);
-  renderNotes(notes, filters);
 });
 
 // ----------------dropdown filter ---------------
