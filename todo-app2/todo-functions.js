@@ -1,5 +1,5 @@
 //fetch existing todos from localStorage
-const getSavedtodos = () => {
+const getSavedTodos = () => {
   const todosJSON = localStorage.getItem("todos");
   if (todosJSON !== null) {
     return JSON.parse(todosJSON);
@@ -14,7 +14,7 @@ const saveTodos = (todos) => {
 };
 
 //render filtered todos
-const renderTodos = (todos, filter) => {
+const renderTodos = (todos, filters) => {
   const filteredTodos = todos.filter((todo) => {
     const searchTextMatch = todo.text
       .toLowerCase()

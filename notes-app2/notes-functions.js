@@ -45,6 +45,7 @@ const removeNote = (noteId) => {
 
 // render filtered notes
 const renderNotes = (notes, filters) => {
+  notes = sortNotes(notes, filters.sortBy);
   const filteredNotes = notes.filter((note) => {
     return note.title.toLowerCase().includes(filters.searchText.toLowerCase());
   });
@@ -58,4 +59,16 @@ const renderNotes = (notes, filters) => {
 //save the notes to localStorage
 const saveNotes = (notes) => {
   localStorage.setItem("notes", JSON.stringify(notes));
+};
+
+// generate last edited message
+const generateLastEdited = (note) => {
+  return `Last edited ${moment(note.updatedAt).fromNow()}`;
+};
+
+//sort my notes by one of the 3 ways
+const sortNotes = (notes) => {
+  if (sortBy === "byEdited") {
+    return notes.sort((a, b) => {});
+  }
 };

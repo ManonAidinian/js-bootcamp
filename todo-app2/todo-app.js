@@ -1,4 +1,4 @@
-const todos = getSavedtodos();
+const todos = getSavedTodos();
 
 const filters = {
   searchText: "",
@@ -38,7 +38,7 @@ document.querySelector("#todo-form").addEventListener("submit", (event) => {
     text: textValue,
     completed: false,
   });
-  renderTodos(todos, filters);
   event.target.elements.todo.value = "";
   saveTodos(todos);
+  renderTodos(todos, filters);
 });

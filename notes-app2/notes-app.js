@@ -2,6 +2,7 @@ let notes = getSavedNotes();
 
 const filters = {
   searchText: "",
+  sortBy: "byEdited",
 };
 
 renderNotes(notes, filters);
@@ -19,6 +20,8 @@ document.querySelector("#create-new").addEventListener("click", (event) => {
   const id = uuidv4();
   notes.push({
     id: id,
+    createdAt: moment().valueOf(),
+    updatedAt: moment().valueOf(),
     title: "",
     body: "",
   });
@@ -29,8 +32,8 @@ document.querySelector("#create-new").addEventListener("click", (event) => {
 // ----------------dropdown filter ---------------
 
 document.querySelector("#filter-by").addEventListener("change", (event) => {
-  event.target.value;
-  console.log(event.target.value);
+  filters.sortBy = event.target.value;
+  renderNotes(notes, filters);
 });
 
 window.addEventListener("storage", (event) => {
