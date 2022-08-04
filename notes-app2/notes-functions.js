@@ -67,8 +67,38 @@ const generateLastEdited = (note) => {
 };
 
 //sort my notes by one of the 3 ways
-const sortNotes = (notes) => {
+const sortNotes = (notes, sortBy) => {
   if (sortBy === "byEdited") {
-    return notes.sort((a, b) => {});
+    return notes.sort((a, b) => {
+      if (a.updatedAt > b.updatedAt) {
+        return -1;
+      } else if (a.updatedAt < b.updatedAt) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+  } else if (sortBy === "byCreated") {
+    return notes.sort((a, b) => {
+      if (a.createdAt > b.createdAt) {
+        return -1;
+      } else if (a.createdAt < b.createdAt) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+  } else if (sortBy === "alphabetical") {
+    return notes.sort((a, b) => {
+      if (a.title < b.title) {
+        return -1;
+      } else if (a.title > b.title) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+  } else {
+    return notes;
   }
 };
