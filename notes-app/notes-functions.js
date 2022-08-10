@@ -35,9 +35,7 @@ const generateNoteDOM = (note) => {
 
 // remove note
 const removeNote = (noteId) => {
-  const noteIndex = notes.findIndex((note) => {
-    return note.id === noteId;
-  });
+  const noteIndex = notes.findIndex((note) => note.id === noteId);
   if (noteIndex > -1) {
     notes.splice(noteIndex, 1);
   }
@@ -46,9 +44,9 @@ const removeNote = (noteId) => {
 // render filtered notes
 const renderNotes = (notes, filters) => {
   notes = sortNotes(notes, filters.sortBy);
-  const filteredNotes = notes.filter((note) => {
-    return note.title.toLowerCase().includes(filters.searchText.toLowerCase());
-  });
+  const filteredNotes = notes.filter((note) =>
+    note.title.toLowerCase().includes(filters.searchText.toLowerCase())
+  );
   document.querySelector("#notes").innerHTML = "";
   filteredNotes.forEach((note) => {
     const noteElement = generateNoteDOM(note);
@@ -62,9 +60,8 @@ const saveNotes = (notes) => {
 };
 
 // generate last edited message
-const generateLastEdited = (note) => {
-  return `Last edited ${moment(note.updatedAt).fromNow()}`;
-};
+const generateLastEdited = (note) =>
+  `Last edited ${moment(note.updatedAt).fromNow()}`;
 
 //sort my notes by one of the 3 ways
 const sortNotes = (notes, sortBy) => {

@@ -70,9 +70,7 @@ const generateSummaryDOM = (incomplete) => {
 
 //remove todo by its ID
 const removeTodo = (todoId) => {
-  const todoIndex = todos.findIndex((todo) => {
-    return todo.id === todoId;
-  });
+  const todoIndex = todos.findIndex((todo) => todo.id === todoId);
   if (todoIndex > -1) {
     todos.splice(todoIndex, 1);
   }
@@ -80,9 +78,7 @@ const removeTodo = (todoId) => {
 
 //toggle to do complete/uncomplete
 const toggleTodo = (todoId) => {
-  const todo = todos.find((todo) => {
-    return todo.id === todoId;
-  });
+  const todo = todos.find((todo) => todo.id === todoId);
   if (todo !== undefined) {
     todo.completed = !todo.completed;
   }
