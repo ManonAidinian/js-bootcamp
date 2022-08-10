@@ -1,11 +1,7 @@
 // read already existing notes from local storage
 const getSavedNotes = () => {
   const notesJSON = localStorage.getItem("notes");
-  if (notesJSON !== null) {
-    return JSON.parse(notesJSON);
-  } else {
-    return [];
-  }
+  return notesJSON !== null ? JSON.parse(notesJSON) : [];
 };
 
 // generate the DOM structure for a note
