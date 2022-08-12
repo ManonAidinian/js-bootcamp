@@ -1,7 +1,21 @@
 // read already existing notes from local storage
+"use strict";
+
+let data;
+const processData = () => {
+  data = "123456789";
+};
+
+processData();
+console.log(data);
+
 const getSavedNotes = () => {
   const notesJSON = localStorage.getItem("notes");
-  return notesJSON ? JSON.parse(notesJSON) : [];
+  try {
+    return notesJSON ? JSON.parse(notesJSON) : [];
+  } catch (e) {
+    return [];
+  }
 };
 
 // generate the DOM structure for a note
