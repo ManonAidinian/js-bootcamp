@@ -25,8 +25,8 @@ Person.prototype.changeName = function (fullName) {
 // needs reg function otherwise no access to this with arrow
 
 const me = new Person("Manon", "Aidinian", 34, ["cat", "surf"]);
+me.changeName("Agathe Mahé");
 console.log(me.getBio());
 
 const other = new Person("Guido", "Caldara", 33);
-other.changeName("Agathe Mahé");
-console.log(other);
+console.log(other.getBio());
