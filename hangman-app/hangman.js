@@ -23,6 +23,16 @@ HangMan.prototype.calculateStatus = function () {
   }
 };
 
+HangMan.prototype.getStatusMessage = function () {
+  if (this.status === "playing") {
+    return `Guesses left: ${this.remainingGuesses}`;
+  } else if (this.status === "failed") {
+    return `Nice try, the word was "${this.word.join("")}"`;
+  } else {
+    return `Great work! You guessed the word`;
+  }
+};
+
 HangMan.prototype.getPuzzle = function () {
   let puzzle = "";
   this.word.forEach((letter) => {
@@ -38,6 +48,11 @@ HangMan.prototype.getPuzzle = function () {
 HangMan.prototype.makeGuess = function (guessedLetter) {
   guessedLetter = guessedLetter.toLowerCase();
   const exist = this.guessedLetters.includes(guessedLetter);
+
+  if (this.status !== "playing") {
+    return;
+  }
+
   if (!exist) {
     this.guessedLetters.push(guessedLetter);
   }
