@@ -6,7 +6,7 @@ class Person {
     this.lastName = lastName;
     this.age = age;
     this.likes = likes;
-  }
+  } // no coma!
   getBio() {
     let bio = `${this.firstName} is ${this.age}.`;
     this.likes.forEach((like) => {
@@ -44,7 +44,27 @@ const myPerson = new Person("Guido", "Caldara", 33, ["running"]);
 console.log(myPerson);
 console.log(myPerson.getBio());
 
-//
+class Student extends Person {
+  constructor(firstName, lastName, age, likes = [], grade) {
+    super(firstName, lastName, age, likes);
+    this.grade = grade;
+  }
+  getBio() {
+    const status = this.grade >= 70 ? "passing" : "failing";
+    return `${this.firstName} is ${status} the test`;
+  }
+  updateGrade(addedGrade) {
+    this.grade += addedGrade;
+  }
+}
+
+const myStudent = new Student("Toto", "Otot", 12, ["football", "icecream"], 64);
+console.log(myStudent.grade);
+console.log(myStudent.getBio());
+myStudent.updateGrade(10);
+console.log(myStudent.grade);
+console.log(myStudent.getBio());
+
 //
 //
 // -----------------------OLD SYNTAX--------------------------------
