@@ -15,7 +15,7 @@ class Person {
     // this function child HAS to be arrow function but still have access to this from its parent.
     return bio;
   }
-  changeName(fullName) {
+  set fullName(fullName) {
     const names = fullName.split(" ");
     this.firstName = names[0];
     this.lastName = names[1];
@@ -37,6 +37,7 @@ class Employee extends Person {
 
 const myEmployee = new Employee("Manon", "Aidi", "waitress", 34, ["my cats"]);
 console.log(myEmployee);
+myEmployee.fullName = "Agathe Mahe";
 console.log(myEmployee.getBio());
 console.log(myEmployee.getYearsLeft());
 

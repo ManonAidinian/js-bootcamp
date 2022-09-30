@@ -11,3 +11,4 @@ const data = {
 data.location = "   Bali   ";
 data.location = "   Paris";
 console.log(data);
+console.log(data.location);
